@@ -1,0 +1,19 @@
+<h1>{{title}}</h1>
+<div>
+  <input type="text" [(ngModel)]="selectName" ><button (click)="selectByName(selectName)">查找</button>
+</div>
+<table *ngFor="let p of product;let i=index" >
+  <tr>
+    <td>
+
+      <div [routerLink]="['/productdetail',p.id]">
+        <div style="width:100px;height:100px;"><img></div><br>
+        <span>名称：{{p.productName}}</span><br>
+        <span>价格：{{p.price}}</span><br>
+      </div>
+    </td>
+
+  </tr>
+
+</table>
+

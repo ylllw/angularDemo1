@@ -1,0 +1,39 @@
+
+<h1>{{title}}</h1>
+{{currentPage}}
+<div>
+  <button routerLink="/productadd">新增</button>
+
+  <table>
+    <tr>
+      <th>序号</th>
+
+      <td>产品名称</td>
+      <td>生产日期</td>
+      <td>工厂</td>
+      <td>产品类型</td>
+      <td>价格</td>
+      <td>备注</td>
+      <td>LOGO</td>
+      <td>操作</td>
+    </tr>
+    <tr *ngFor="let product of porducts,let i = index;">
+      <td>{{(currentPage-1)*15+i+1}}</td>
+
+      <td>{{product.productName}}</td>
+      <td>{{product.productDate | date:'yyyy-MM-dd hh:mm:ss'}}</td>
+      <td>{{product.factory}}</td>
+      <td>{{product.productionType}}</td>
+      <td>{{product.price}}</td>
+      <td>{{product.remark}}</td>
+      <td>{{product.logoImg}}</td>
+      <td><button (click)="deleteProduct(product.id)">删除</button><button [routerLink]="['/productUpdate',product.id]">修改</button></td>
+    </tr>
+  </table>
+  <div>
+    <button  *ngIf="currentPage>1" (click)="upPage()">上一页</button>
+    <button  (click)="nextPage()" >下一页</button>
+
+  </div>
+</div>
+

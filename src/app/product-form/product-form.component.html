@@ -1,0 +1,16 @@
+<nav><a routerLink="/productcrud">返回</a></nav>
+<h4>{{title}}</h4>
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+<table>
+
+  <tr><td>产品名称:</td><td><input type="text" formControlName="productName" ></td></tr>
+  <tr><td>生产日期:</td><td><input type="datetime-local" formControlName="productDate"></td></tr>
+  <tr><td>工厂:</td><td><input type="text" formControlName="factory"></td></tr>
+  <tr><td>产品类型:</td><td><input type="text" formControlName="productionType"></td></tr>
+  <tr><td>价格:</td><td><input type="number" formControlName="price"></td></tr>
+  <tr><td>备注:</td><td><input type="text" formControlName="remark"></td></tr>
+  <tr><td>logo:</td><td> <img height="100px" width="100px" [src]="_d.bypassSecurityTrustUrl(imgsrc)"><input type="file" accept="image/*" (change)="fileChange($event)" formControlName="logoImg"></td></tr>
+  <tr><td><button type="submit" [disabled]="!productForm.valid">Submit</button></td></tr>
+</table>
+</form>
+
